@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RTSP Stream via WebSockets</title>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '/video');
+            socket.on('frame', function(data) {
+                var image = document.getElementById('video');
+                image.src = data.data;
+            });
+        });
+    </script>
+</head>
+<body>
+    <img id="video" src="">
+</body>
+</html>
