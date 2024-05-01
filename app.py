@@ -3,10 +3,12 @@ from flask_socketio import SocketIO, emit
 import cv2
 from base64 import b64encode
 import time
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
+CORS(app)
 
 @app.route('/')
 def index():
@@ -36,5 +38,5 @@ if __name__ == '__main__':
     from threading import Thread
     thread = Thread(target=capture_frames, args=(rtsp_url,))
     thread.start()
-    socketio.run(app, host='0.0.0.0', port=5000)
+    socketio.run(app, host='0.0.0.0', port=5000,allow_unsafe_werkzeug=True)
 
