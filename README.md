@@ -21,5 +21,5 @@ sudo apt-get install libgl1-mesa-glx libgl1-mesa-dri
 3. 파이썬 실행
 ---
 
-파이썬 실행 : python app.py <br>
-백그라운드 실행 : nohup python app.py & 
+파이썬 실행 : python3 app.py <br>
+백그라운드 실행 : nohup python3 app.py & 
